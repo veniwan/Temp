@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="author" content="veniwan">
+    <meta name="description" content="{{ description|default:'Default veniwan' }}">
+    <meta name="keywords" content="{{ keywords|default:'Default venwian' }}">
+    <title>{% block content %}veniwan{% endblock %}</title>
+    <link rel="shortcut icon" href="{{ static('favicon.ico') }}">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/github-markdown.css">
+    {% block css %}{% endblock %}
+</head>
+<body id="{% block body-id %}body{% endblock %}">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">veniwan</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">VeniWan</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li {% if slug == 'blog' %}class="active"{% endif %}>
+                        <a href="#">随笔</a>
+                    </li>
+                    <li {% if slug == 'archive' %}class="active"{% endif %}>
+                        <a href="#">归档</a>
+                    </li>
+                    <li {% if slug == 'series' %}class="active"{% endif %}>
+                        <a href="#">系列</a>
+                    </li>
+                    <li {% if slug == 'contact' %}class="active"{% endif %}>
+                        <a href="#">留言</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li {% if slug == 'github' %}class="active"{% endif %}>
+                        <a href="#">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class='container markdown-body'>
+        {% block content %}<p> lorem </p>{% endblock %}
+    </div>
+    
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    {% block js %}{% endblock %}
+
+</body>
+</html>
